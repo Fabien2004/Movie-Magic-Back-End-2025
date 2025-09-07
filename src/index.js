@@ -10,8 +10,7 @@ app.set('view engine', 'hbs');
 app.set('views', './src/views');
 
 app.get('/', (req, res) => {
-
-    res.send('Hello, World!');
+    res.render('index');
 });
 
 

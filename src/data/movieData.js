@@ -16,7 +16,7 @@ function saveDb(data){
 
 
  
-async function getMovies() {
+async function getAll() {
     const db = await getDb();
     return db.movies;
 }
@@ -28,6 +28,6 @@ async function create(movieData){
 }
 
 export default{
-    getMovies,
+    getAll,
     create
 }

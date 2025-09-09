@@ -9,16 +9,16 @@ async function getDb(){
     const data = JSON.parse(jsonResult);
     return data;
 
-}
+} 
 function saveDb(data){
     return fs.writeFile(dbPath, JSON.stringify(data, {}, 2));
 }
 
 
- 
+  
 async function getAll() {
     const db = await getDb();
-    return db.movies;
+    return db.movies; 
 }
 
 async function create(movieData){
@@ -30,4 +30,4 @@ async function create(movieData){
 export default{
     getAll,
     create
-}
+}  

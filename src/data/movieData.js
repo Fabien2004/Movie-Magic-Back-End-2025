@@ -14,8 +14,6 @@ function saveDb(data){
     return fs.writeFile(dbPath, JSON.stringify(data, {}, 2));
 }
 
-
-  
 async function getAll() {
     const db = await getDb();
     return db.movies; 

@@ -4,7 +4,7 @@ import movieService from '../services/movieService.js';
 
 const router = Router();
  
- function toArray(document){
+ function toArray(document){ 
     return document.map(document => document.toObject());
 }
 

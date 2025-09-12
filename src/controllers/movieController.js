@@ -31,13 +31,18 @@ router.get('/:movieId/details', async (req, res) => {
     
     movie.ratingView = getRatingViewData(movie.rating);
 
-    res.render('movies/details', { movie }); 
+    res.render('movies/details', { movie });  
 }); 
+
+router.get('/:movieId/attach', async (req, res) => {
+    const movie = await movieService.getOne(req.params.movieId).lean();
+    res.render('movies/attach', { movie });
+});
 
 function getRatingViewData(rating){
 
     if(!Number.isInteger(rating)){
-        return 'n\\a';
+        return 'n\\a'; 
     }
     return '&#x2605;'.repeat(rating);
 }

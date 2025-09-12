@@ -1,14 +1,14 @@
-import { Schema } from 'mongoose';
-import { generatePath } from 'react-router';
+import { Schema, model } from 'mongoose';
+
 
 const movieSchema = new Schema({
-    title: { type: String, required: true },
-    director: { type: String, required: true },
-    genre : { type: String, required: true },
-    rating: { type: Number, min: 0, max: 10 },
-    year: { type: Number, min: 1888 }, 
-    description : { type: String },
-    imageUrl: { type: String }
+    title: String,
+    director: String,
+    genre : String,
+    rating: Number,
+    year: Number, 
+    description : String,
+    imageUrl: String,
 
 });
 const Movie = model('Movie', movieSchema);

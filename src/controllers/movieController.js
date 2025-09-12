@@ -3,6 +3,10 @@ import movieService from '../services/movieService.js';
 
 const router = Router();
 
+ function toArray(document){
+    return document.map(document => document.toObject());
+}
+
 router.get('/create', (req, res) => {
     res.render('movies/create');
 });
@@ -18,18 +22,17 @@ router.post('/create', async (req, res) => {
 router.get('/search', async (req, res) => {
     const filter = req.query;
     const movies = await movieService.getAll(filter);
-
-    res.render('home', { isSearch: true, movies, filter });
+        res.render('home', { isSearch: true, movies: toArray(movies), filter });
 });
 
 router.get('/:movieId/details', async (req, res) => {
     const movieId = req.params.movieId;
-    const movie = await movieService.getOne(movieId);
+    const movie = await movieService.getOne(movieId).lean();
     
     movie.ratingView = getRatingViewData(movie.rating);
 
-    res.render('movies/details', { movie });
-});
+    res.render('movies/details', { movie }); 
+}); 
 
 function getRatingViewData(rating){
 

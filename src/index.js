@@ -1,7 +1,9 @@
-import handlebarsInit from './config/handlebars.js';
-import expressInit from './config/express.js';
-import routes from './routes.js';
 import express from 'express';
+import routes from './routes.js';
+import expressInit from './config/expressInit.js';
+import handlebarsInit from './config/handlebarsInit.js';
+
+
 import mongooseInit from './config/mongooseInit.js';
 
 
@@ -10,6 +12,8 @@ const app = express();
 mongooseInit();
 handlebarsInit(app);
 expressInit(app);
+
+
 app.use(routes); 
 
 

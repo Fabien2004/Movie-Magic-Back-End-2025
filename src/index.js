@@ -11,6 +11,6 @@ mongooseInit();
 handlebarsInit(app);
 expressInit(app);
 
-app.use(routes);
+app.use(routes); 
 
 app.listen(5000, () => console.log('Server is listening on http://localhost:5000'));

@@ -5,6 +5,7 @@ const castSchema = new Schema({
     age: Number,
     born: String,
     imageUrl: String,
+    _id : false,
 });
 
 const Cast = model('Cast', castSchema);

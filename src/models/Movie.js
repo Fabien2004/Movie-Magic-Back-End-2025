@@ -32,13 +32,16 @@ const movieSchema = new Schema({
     },
     imageUrl: String,
     casts: [{
-       
         character: String,
         cast: {
             type: Types.ObjectId,
             ref: 'Cast'
         },
-    }]
+    }],
+    owner: {
+        type: Types.ObjectId,
+        ref: 'User',
+    }
 });
 
 const Movie = model('Movie', movieSchema);

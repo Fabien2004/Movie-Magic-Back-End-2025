@@ -20,8 +20,9 @@ const login = async (email, password) => {
 
     const payload = {
         _id: user._id,
+        email,
     }
-    const token = jwt.sign(payload, SECRET, { expiresIn: '2d' });
+    const token = jwt.sign(payload, SECRET, { expiresIn: '2h' });
 
     return token
 };

@@ -1,22 +1,19 @@
 import Movie from '../models/Movie.js';
 
-// TODO: Filter in db not in memory
+
 const getAll = (filter = {}) => {
     let moviesQuery = Movie.find();
 
     if (filter.search) {
         moviesQuery.find({ title: { $regex: filter.search, $options: 'i' } });
-        // moviesQuery.regex('title', new RegExp(filter.search, 'i'))
     }
 
     if (filter.genre) {
         moviesQuery.find({ genre: filter.genre.toLowerCase() });
-        // moviesQuery.where('genre').equals(filter.genre.toLowerCase())
     }
 
     if (filter.year) {
         moviesQuery.find({ year: filter.year });
-        // moviesQuery.where('year').equals(filter.year);
     }
 
     return moviesQuery; 

@@ -10,11 +10,13 @@ import { JWT_SECRET } from '../config/constant.js'
 
     try {
       const decodedToken = jwt.verify(token, JWT_SECRET);
-      console.log(decodedToken);
+     console.log(decodedToken);
+     
       
         return next();
     } catch (err) {
-        
+        res.clearCookie('auth');
+       res.redirect('/auth/login');
     }
 
 

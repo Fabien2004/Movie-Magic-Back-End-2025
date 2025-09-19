@@ -14,7 +14,9 @@
 
         <nav>
             <img src="/img/logo.webp" alt="logo">
-
+            {{#if userEmail}}
+                <em>{{userEmail}}</em>
+                {{/if}}
             <ul class="menu">
                 <li><a href="/">Home</a></li>
                 <li><a href="/movies/search">Search</a></li>

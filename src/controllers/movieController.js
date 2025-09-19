@@ -22,15 +22,17 @@ router.get('/search', async (req, res) => {
     const filter = req.query;
     const movies = await movieService.getAll(filter).lean();
 
-    res.render('home', { isSearch: true, movies, filter });
+    res.render('home', { isSearch: true, movies, filter }); 
 });
 
 router.get('/:movieId/details', async (req, res) => {
     const movieId = req.params.movieId;
-    const movie = await movieService.getOne(movieId).lean();
-     
+    const movie = await movieService.getOne(movieId).lean(); 
     const isOwner = req.user?._id == movie.owner;
-    res.render('movies/details', { movie, isOwner });
+
+    
+
+    res.render('movies/details', { movie, isOwner});
 });
 
 router.get('/:movieId/attach', async (req, res) => {

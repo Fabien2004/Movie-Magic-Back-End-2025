@@ -16,7 +16,7 @@ const getAll = (filter = {}) => {
         moviesQuery.find({ year: filter.year });
     }
 
-    return moviesQuery; 
+    return moviesQuery;  
 };
 
 const create = (movie, ownerId) => Movie.create({...movie, owner: ownerId })
@@ -26,10 +26,12 @@ const getOne = (movieId) => Movie.findById(movieId).populate('casts.cast');
 const attach = (movieId, castId, character) => {
     return Movie.findByIdAndUpdate(movieId, { $push: { casts: { cast: castId, character } } });
 };
+const remove = (movieId) => Movie.findByIdAndDelete(movieId);
 
 export default {
     getAll,
     create,
     getOne,
     attach,
+    remove,
 }

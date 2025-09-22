@@ -12,7 +12,7 @@ router.get('/create', isAuth, (req, res) => {
     res.render('movies/create');
 });
 
-router.post('/create', isAuth, async (req, res) => {
+router.post('/create', isAuth, async (req, res) => { 
     const movieData = req.body;
     const ownerId = req.user?._id;
     try {

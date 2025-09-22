@@ -15,7 +15,7 @@ router.use('/auth', authController);
 
 router.use((req, res) => {
   res.status(404).render("404"); 
-}); 
+});  
 
 export default router; 
  

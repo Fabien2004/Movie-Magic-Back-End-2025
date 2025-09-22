@@ -1,4 +1,4 @@
-import handlebars from 'express-handlebars';
+import handlebars from 'express-handlebars'; 
 
 
 export default function handlebarsInit(app) {

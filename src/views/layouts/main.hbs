@@ -9,9 +9,13 @@
 </head>
 
 <body>
-
+     
     <div id="box">
-
+        {{#if error}}
+        <div class="error-container">
+            <p>{{error}}</p>
+        </div>
+          {{/if}}
         <nav>
             <img src="/img/logo.webp" alt="logo">
             {{#if userEmail}}
@@ -40,7 +44,7 @@
 
         </main>
         <footer>
-            © JS Back-End Workshop
+             © Movie Catalog
         </footer>
     </div>
 

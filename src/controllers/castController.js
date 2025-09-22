@@ -8,10 +8,15 @@ router.get('/create', (req, res) => {
 });
 
 router.post('/create', async (req, res) => {
-    const cast = req.body;
-
-    await castService.create(cast);
-
+    const castData = req.body;
+    const ownerId = req.user?._id;
+    
+    try { 
+           await castService.create(castData, ownerId); 
+        } catch (err) {
+            const errorMessage = Object.values(err.errors)[0]?.message;
+            return res.render('cast/create', { error: errorMessage, movie: castData}); 
+        }
     res.redirect('/');
 });
 

@@ -9,10 +9,9 @@ router.get('/create', (req, res) => {
 
 router.post('/create', async (req, res) => {
     const castData = req.body;
-    const ownerId = req.user?._id;
     
     try { 
-           await castService.create(castData, ownerId); 
+           await castService.create(castData); 
         } catch (err) {
             const errorMessage = Object.values(err.errors)[0]?.message;
             return res.render('cast/create', { error: errorMessage, movie: castData}); 

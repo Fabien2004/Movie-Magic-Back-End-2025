@@ -6,7 +6,7 @@ const SALT_ROUNDS = 10
 const userSchema = new Schema({
      email: {
         type: String,
-        unique: true, // Index
+        unique: true,
         validate: [/@[A-Za-z0-9]+.[A-Za-z0-9]+$/, 'Invalid email address!'],
         minLength: [10, 'Email is too short!'],
     },

@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import authService from '../services/authService.js'
 const router = Router(); 
-import validator from 'validator';
+
 
 
 router.get('/register', (req, res) => {
@@ -15,7 +15,6 @@ router.post('/register', async (req, res) => {
     } catch (err) {
         console.log(err.message); 
         res.end(); 
-        
     }
     const token = await authService.login(email, password); 
     res.cookie('auth', token, {httpOnly: true});
